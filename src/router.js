@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 // 英雄页面
 import HeroList from './view/heroes/HeroList.vue';
+import HeroAdd from './view/heroes/HeroAdd.vue';
 // 装备页面
 import EquipsList from './view/equips/EquipsList.vue';
 // 武器页面
@@ -21,6 +22,11 @@ const router = new VueRouter({
         name: 'heroes',
         path: '/heroes',
         component: HeroList
+      },
+      {
+        name: 'add',
+        path: '/heroes/add',
+        component: HeroAdd
       },
       {
         name: 'equips',
