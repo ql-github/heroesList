@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 
 export default {
     data() {
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         add(){
-          axios.post("http://localhost:3000/heroes",this.fromData) 
+          this.axios.post("heroes",this.fromData) 
           .then((res)=>{
               if(res.status==201){
               // 添加成功跳转回列表页面

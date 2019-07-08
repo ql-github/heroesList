@@ -33,8 +33,6 @@
 </template>
 
 <script>
-// 导入axios
-import axios from "axios";
 
 export default {
   data() {
@@ -48,8 +46,8 @@ export default {
   // 发送axios请求数据渲染页面
   methods: {
     getData() {
-      axios
-        .get("http://localhost:3000/heroes")
+      this.axios
+        .get("heroes")
         .then((res) => {
           if (res.status == 200) {
             this.list = res.data;
@@ -63,7 +61,7 @@ export default {
     delData(id){
       if(confirm('是否确定删除?')){
         //在模板字符串中要输出变量可以使用 ${变量名} 的形式
-        axios.delete(`http://localhost:3000/heroes/${id}`)
+        this.axios.delete(`heroes/${id}`)
         .then((res)=>{
           if (res.status == 200) {
             // 删除成功后刷新页面

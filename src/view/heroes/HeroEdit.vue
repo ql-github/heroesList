@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   props: ["id"],
@@ -47,15 +46,15 @@ export default {
   // 根据id获取页面数据
   methods: {
     getId() {
-      axios.get(`http://localhost:3000/heroes/${this.id}`).then(res => {
+      this.axios.get(`/heroes/${this.id}`).then(res => {
         if (res.status == 200) {
           this.fromData = res.data;
         }
       });
     },
     edit() {
-      axios
-        .put(`http://localhost:3000/heroes/${this.id}`, this.fromData)
+      this.axios
+        .put(`/heroes/${this.id}`, this.fromData)
         .then(res => {
           if (res.status == 200) {
             this.$router.push({ path: "/heroes" });
